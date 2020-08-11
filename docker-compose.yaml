@@ -1,0 +1,8 @@
+version: "3.7"
+services:
+  bot:
+    image: registry.ikjpz.com/ikjpz.com/djangodocbot
+    restart: unless-stopped
+    environment:
+      DISCORD_TOKEN: ${DISCORD_TOKEN}
+      RUST_LOG: info

@@ -22,19 +22,15 @@ async fn do_request(url: &str) -> Result<String, reqwest::Error> {
 }
 
 fn parse_django_search(search_results: &Html) -> SearchResults {
-    let items_selector = Selector::parse("dl.search-links .result-title > a").unwrap();
-    let a: Vec<SearchResult> = search_results.select(&items_selector).map(|page| {
+    let items_selector = Selector::parse("dl.search-links .result-title > a")
+        .expect("it seems django search page change its layout");
+    search_results.select(&items_selector).map(|page| {
         let result = SearchResult{
             title: page.text().next().unwrap().to_string(),
             url: page.value().attr("href").unwrap().to_string()
         };
-        //println!("{:?}", result);
-        //println!("-------");
         result
-    }).collect();
-    a
-    //println!("{:?}", a);
-    //SearchResults(a)
+    }).collect()
 }
 
 pub async fn search_documentation(terms: &str) -> SearchResults {
