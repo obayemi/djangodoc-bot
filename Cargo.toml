@@ -13,8 +13,8 @@ clap = {version = "~2.27.0", features = ["yaml"]}
 scraper = {version = "0.12" }
 
 dotenv = { version = "0.15.0", optional = true }
-serenity = { git = "https://github.com/acdenisSK/serenity", branch = "await_next", optional = true }
-# serenity = { version = "0.8.6", optional = true}
+# serenity = { git = "https://github.com/acdenisSK/serenity", branch = "await_next", optional = true }
+serenity = { version = "0.9.0-rc.0", optional = true}
 log = { version = "0.4.8", optional = true }
 env_logger = { version = "0.7.1", optional = true }
 

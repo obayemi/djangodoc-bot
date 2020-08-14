@@ -11,7 +11,7 @@ pub struct SearchResult {
 
 pub type SearchResults = Vec<SearchResult>;
 
-const DJANGO_DOC_SEARCH_URL: &str = "https://docs.djangoproject.com/en/3.0/search/";
+const DJANGO_DOC_SEARCH_URL: &str = "https://docs.djangoproject.com/en/stable/search/";
 
 async fn do_request(url: &str) -> Result<String, reqwest::Error> {
     Ok(reqwest::

@@ -54,7 +54,7 @@ async fn main() {
     let mut client = Client::new(&env::var("DISCORD_TOKEN").expect("token"))
         .framework(
             StandardFramework::new()
-                .configure(|c| c.prefix("!"))
+                .configure(|c| c.prefix(&env::var("DISCORD_PREFIX").unwrap_or("!".to_string())))
                 .group(&COMMANDS_GROUP),
             )
         .await.expect("Error creating client");
